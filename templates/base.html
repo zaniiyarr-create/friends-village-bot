@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ku" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909"><meta name="description" content="Friends Village — بۆتێکی Discord ب زمانی بادینی.">
+  <title>{% block title %}Friends Village{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">FV</span><span>FRIENDS <b>VILLAGE</b><small>کۆمەڵگەیەکا جوانتر</small></span></a><nav><a href="{{ url_for('home') }}#features">تایبەتمەندی</a><a href="{{ url_for('home') }}#price">بەشداری</a><a href="{{ url_for('apply') }}" class="nav-cta">داواکاری بکە</a></nav></header>
+<main>{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<div class="flash-wrap">{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}{% block content %}{% endblock %}</main>
+<footer><div class="brand footer-brand"><span class="brand-mark">FV</span><span>FRIENDS <b>VILLAGE</b><small>بۆتێ Discord ب زمانی بادینی</small></span></div><p>هەمی ماف پاراستینە بۆ Friends Village.</p><a href="https://wa.me/{{ whatsapp_number }}" target="_blank" rel="noopener">پەیوەندی ب واتساپێ</a></footer>
+</body></html>
